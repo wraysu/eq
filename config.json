@@ -196,6 +196,10 @@
         },
         "widgets": [
             {
+                "label": "MyWidget",
+                "uri": "widgets/MyWidget/Widget"
+            },
+            {
                 "uri": "widgets/Legend/Widget",
                 "version": "2.8",
                 "id": "widgets_Legend_Widget_18",
