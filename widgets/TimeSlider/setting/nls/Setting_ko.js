@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"\uc704\uc82f\uc5d0 \uc2dc\uacc4\uc5f4 \ub808\uc774\uc5b4 \uc774\ub984 \ud45c\uc2dc",autoPlay:"\uc2ac\ub77c\uc774\ub354 \uc790\ub3d9 \uc7ac\uc0dd",dateAndTimeFormat:"\ub0a0\uc9dc \ubc0f \uc2dc\uac04 \ud615\uc2dd",mapDefault:"\ub9f5 \uae30\ubcf8\uac12",custom:"\uc0ac\uc6a9\uc790 \uc815\uc758",formatInstruction:"\ud615\uc2dd \uc9c0\uce68",playback:"\uc7ac\uc0dd \uc704\uce58\uac00 \ub9f5\uc5d0 \uc800\uc7a5\ub428",MMMMYYYY:"2015\ub144 7\uc6d4",
+MMMYYYY:"2015\ub144 7\uc6d4",MMMMDYYYY:"2015\ub144 7\uc6d4 21\uc77c",dddMMMDDYYYY:"2015\ub144 7\uc6d4 21\uc77c \ud654\uc694\uc77c",MDDYYYY:"7/21/2015",YYYYMDD:"2015/7/21",MDDYY:"7/21/15",YYYY:"2015",MDDYYYYhmma:"7/21/2015 \uc624\uc804 8:00",dddMMMDDhmma:"7\uc6d4 21\uc77c \ud654\uc694\uc77c \uc624\uc804 8:00",_localized:{}}});

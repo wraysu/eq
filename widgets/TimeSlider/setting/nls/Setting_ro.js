@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Afi\u0219eaz\u0103 numele straturilor tematice temporal sensibile pe widget",autoPlay:"Ruleaz\u0103 automat cursorul",dateAndTimeFormat:"Format dat\u0103 \u015fi or\u0103",mapDefault:"Hart\u0103 implicit\u0103",custom:"Personalizat",formatInstruction:"Instruc\u0163iune format",playback:"pozi\u0163ia de redare salvat\u0103 \u00eempreun\u0103 cu harta",MMMMYYYY:"Iulie 2015",MMMYYYY:"Iul 2015",MMMMDYYYY:"Iulie 21,2015",dddMMMDDYYYY:"Mar Iul 21,2015",
+MDDYYYY:"21/7/2015",YYYYMDD:"21/7/2015",MDDYY:"21/7/15",YYYY:"2015",MDDYYYYhmma:"21/7/2015 8:00 am",dddMMMDDhmma:"Mar Iul 21 08:00",_localized:{}}});

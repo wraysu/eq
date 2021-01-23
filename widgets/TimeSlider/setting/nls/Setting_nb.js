@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Vis navn p\u00e5 tidsaktiverte lag i miniprogrammet",autoPlay:"Automatisk avspilling med glidebryter",dateAndTimeFormat:"Dato- og klokkeslettformat",mapDefault:"Standardinnstilling for kart",custom:"Tilpasset",formatInstruction:"Formatinstruksjon",playback:"avspillingsposisjon lagret med kart",MMMMYYYY:"Juli 2015",MMMYYYY:"Jul 2015",MMMMDYYYY:"21. juli 2015",dddMMMDDYYYY:"Tir 21. jul. 2015",MDDYYYY:"21/7/2015",YYYYMDD:"2015/7/21",
+MDDYY:"21/7/2015",YYYY:"2015",MDDYYYYhmma:"21/7/2015 8:00",dddMMMDDhmma:"Tir 21. jul. 8:00",_localized:{}}});

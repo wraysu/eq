@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Par\u0101d\u012bt logr\u012bk\u0101 laiku att\u0113lojo\u0161o sl\u0101\u0146u nosaukumus",autoPlay:"Autom\u0101tiski atska\u0146ot sl\u012bdni",dateAndTimeFormat:"Datuma un laika form\u0101ts",mapDefault:"Noklus\u0113juma karte",custom:"Piel\u0101gots",formatInstruction:"Nor\u0101d\u012bjums par form\u0101tu",playback:"saglab\u0101t\u0101 atska\u0146o\u0161anas vieta ar karti",MMMMYYYY:"2015. gada j\u016blijs",MMMYYYY:"2015. gada j\u016blijs",
+MMMMDYYYY:"2015. gada 21. j\u016blijs",dddMMMDDYYYY:"Otrdiena, 2015. gada 21. j\u016blijs",MDDYYYY:"21.07.2015.",YYYYMDD:"21.07.2015.",MDDYY:"21.07.2015.",YYYY:"2015",MDDYYYYhmma:"21.07.2015. 8:00",dddMMMDDhmma:"Otrdiena, 21. j\u016blijs, plkst. 8:00",_localized:{}}});

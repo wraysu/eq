@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Ara\u00e7 \u00fczerinde zamana duyarl\u0131 katman isimlerini g\u00f6ster",autoPlay:"Kayd\u0131r\u0131c\u0131y\u0131 otomatik olarak oynat",dateAndTimeFormat:"Tarih ve zaman bi\u00e7imi",mapDefault:"Harita varsay\u0131lan\u0131",custom:"\u00d6zel",formatInstruction:"Bi\u00e7im talimat\u0131",playback:"kay\u0131ttan oynatma konumu haritayla kaydedildi",MMMMYYYY:"Temmuz 2015",MMMYYYY:"Tem 2015",MMMMDYYYY:"21 Temmuz 2015",dddMMMDDYYYY:"21 Tem 2015 Sal\u0131",
+MDDYYYY:"21/07/2015",YYYYMDD:"21/7/2015",MDDYY:"21/07/15",YYYY:"2015",MDDYYYYhmma:"21/7/2015 8:00",dddMMMDDhmma:"21 Tem Sal\u0131 8:00",_localized:{}}});

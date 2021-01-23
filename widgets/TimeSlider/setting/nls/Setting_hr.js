@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Prika\u017ei nazive ovremenjenih slojeva na widgetu",autoPlay:"Automatski pokreni kliza\u010d",dateAndTimeFormat:"Format datuma i vremena",mapDefault:"Zadana karta",custom:"Prilago\u0111eno",formatInstruction:"Upute za format",playback:"polo\u017eaj reprodukcije spremljen s kartom",MMMMYYYY:"srpanj 2015.",MMMYYYY:"srp. 2015.",MMMMDYYYY:"srpanj 21,2015.",dddMMMDDYYYY:"utorak, 21. srp. 2015.",MDDYYYY:"21.7.2015.",YYYYMDD:"21.7.2015.",
+MDDYY:"21.7.2015.",YYYY:"2015.",MDDYYYYhmma:"21.7.2015., 8:00 ujutro",dddMMMDDhmma:"utorak, 21. srp., 8:00 ujutro",_localized:{}}});

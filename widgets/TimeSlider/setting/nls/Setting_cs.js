@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Umo\u017e\u0148uje zobrazovat ve widgetu n\u00e1zvy vrstev s \u010dasov\u00fdmi informacemi",autoPlay:"Spou\u0161t\u011bt p\u0159ehr\u00e1v\u00e1n\u00ed posuvn\u00edk\u016f automaticky",dateAndTimeFormat:"Form\u00e1t data a \u010dasu",mapDefault:"V\u00fdchoz\u00ed nastaven\u00ed mapy",custom:"Vlastn\u00ed",formatInstruction:"Instrukce form\u00e1tu",playback:"pozice p\u0159ehr\u00e1v\u00e1n\u00ed ulo\u017eena v\u00a0map\u011b",MMMMYYYY:"\u010cervenec 2015",
+MMMYYYY:"\u010cvc 2015",MMMMDYYYY:"\u010cervenec 21,2015",dddMMMDDYYYY:"\u00dat 21. \u010dvc, 2015",MDDYYYY:"7/21/2015",YYYYMDD:"2015/7/21",MDDYY:"7/21/15",YYYY:"2015",MDDYYYYhmma:"7/21/2015 8:00",dddMMMDDhmma:"\u00dat 21. \u010dervence 8:00",_localized:{}}});

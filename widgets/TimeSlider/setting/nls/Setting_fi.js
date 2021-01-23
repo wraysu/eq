@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"N\u00e4yt\u00e4 ajan huomioivien karttatasojen nimet pienoisohjelmassa",autoPlay:"Toista liukus\u00e4\u00e4din automaattisesti",dateAndTimeFormat:"P\u00e4iv\u00e4m\u00e4\u00e4r\u00e4n ja ajan muoto",mapDefault:"Kartan oletusarvo",custom:"Mukautettu",formatInstruction:"Muodon ohje",playback:"karttaan tallennetusta toistosijainnista",MMMMYYYY:"Hein\u00e4kuu 2015",MMMYYYY:"Hein\u00e4 2015",MMMMDYYYY:"21. hein\u00e4kuuta, 2015",dddMMMDDYYYY:"Ti 21.7.2015",
+MDDYYYY:"21.7.2015",YYYYMDD:"2015/7/21",MDDYY:"21.7.2015",YYYY:"2015",MDDYYYYhmma:"21.7.2015 8.00",dddMMMDDhmma:"Ti 21.7.2015 8.00",_localized:{}}});

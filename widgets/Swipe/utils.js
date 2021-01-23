@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://@sbaseurl@/jsapi/jsapi/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define(["dojo/_base/lang","dojo/_base/Color","dojo/_base/html"],function(g,e,d){var f={defaultColor:"#dadada",zoomToCurrentLayer:function(a){var c=a.layerInfosObj,b=a._currentLayerId;a.config.isZoom&&b&&(a=c.getLayerInfoById(b))&&a.zoomTo&&a.zoomTo()},isTherePreconfiguredLayer:function(a,c){if(c)return!0;if(a&&a.layerState){a=a.layerState;for(var b in a)if(a.hasOwnProperty(b)&&!0===a[b].selected)return!0}return!1},processColor:function(a){return a?new e(a):new e(f.defaultColor)},getScreenMiddle:function(a){var c=
+0,b=0;a&&(a.root?(a=d.getMarginBox(a.root),c=a.w/2,b=a.h/2):a.width&&a.height&&(c=a.width/2,b=a.height/2));return{left:c,top:b}},hideSelectorPopup:function(a){d.addClass(a,"hide")},showSelectorPopup:function(a){d.removeClass(a,"hide")},hackToRefreshSwipe:function(a){setTimeout(g.hitch(a,function(){a.swipeDijit.swipe&&a.swipeDijit.swipe()}),200)}};return f});

@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Namen f\u00fcr zeitbezogene Layer im Widget anzeigen",autoPlay:"Zeitschieberegler automatisch wiedergeben",dateAndTimeFormat:"Datums- und Zeitformat",mapDefault:"Kartenstandard",custom:"Benutzerdefiniert",formatInstruction:"Formatanweisung",playback:"mit der Karte gespeicherte Wiedergabeposition",MMMMYYYY:"Juli 2015",MMMYYYY:"Juli 2015",MMMMDYYYY:"21. Juli 2015",dddMMMDDYYYY:"Dienstag, 21. Juli 2015",MDDYYYY:"21.07.2015",YYYYMDD:"21.07.2015",
+MDDYY:"21.07.15",YYYY:"2015",MDDYYYYhmma:"21.07.2015 08:00\u00a0Uhr",dddMMMDDhmma:"Dienstag, 21. Juli 8:00 Uhr",_localized:{}}});

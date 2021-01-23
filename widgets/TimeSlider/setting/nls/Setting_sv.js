@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Visa lagernamn f\u00f6r tidsk\u00e4nsliga lager p\u00e5 widgeten",autoPlay:"S\u00e4tt ig\u00e5ng reglaget automatiskt",dateAndTimeFormat:"Datum- och tidsformat",mapDefault:"Standardkarta",custom:"Anpassat",formatInstruction:"Formateringsinstruktion",playback:"uppspelningspositionen sparas med kartan",MMMMYYYY:"Juli 2015",MMMYYYY:"Juli 2015",MMMMDYYYY:"21 juli 2015",dddMMMDDYYYY:"Tis 21 juli 2015",MDDYYYY:"2015-07-21",YYYYMDD:"21.7.2015",
+MDDYY:"2015-07-21",YYYY:"2015",MDDYYYYhmma:"2015-07-21 08:00",dddMMMDDhmma:"Tis 21 juli 08:00",_localized:{}}});

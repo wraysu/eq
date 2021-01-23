@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"\u5728 widget \u4e0a\u986f\u793a\u6642\u9593\u611f\u77e5\u578b\u5716\u5c64\u540d\u7a31",autoPlay:"\u81ea\u52d5\u64ad\u653e\u6ed1\u687f",dateAndTimeFormat:"\u65e5\u671f\u548c\u6642\u9593\u683c\u5f0f",mapDefault:"\u5730\u5716\u9810\u8a2d\u503c",custom:"\u81ea\u8a02",formatInstruction:"\u683c\u5f0f\u6307\u793a",playback:"\u5c07\u64ad\u653e\u4f4d\u7f6e\u5132\u5b58\u5728\u5730\u5716\u4e2d",MMMMYYYY:"2015 \u5e74 7 \u6708",MMMYYYY:"2015 \u5e74 7 \u6708",
+MMMMDYYYY:"2015 \u5e74 7 \u6708 21 \u65e5",dddMMMDDYYYY:"2015 \u5e74 7 \u6708 21 \u65e5\u661f\u671f\u4e8c",MDDYYYY:"2015 \u5e74 7 \u6708 21 \u65e5",YYYYMDD:"2015 \u5e74 7 \u6708 21 \u65e5",MDDYY:"2015 \u5e74 7 \u6708 21 \u65e5",YYYY:"2015",MDDYYYYhmma:"2015 \u5e74 7 \u6708 21 \u65e5\u4e0a\u5348 8:00",dddMMMDDhmma:"7 \u6708 21 \u65e5\u661f\u671f\u4e8c\u4e0a\u5348 8:00",_localized:{}}});

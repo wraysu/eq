@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define({"widgets/TimeSlider/setting/nls/strings":{showLayerLabels:"Na pripomo\u010dku prika\u017ei imena slojev s \u010dasom",autoPlay:"Samodejno predvajaj drsnik",dateAndTimeFormat:"Oblika datuma in ure",mapDefault:"Privzeto",custom:"Po meri",formatInstruction:"Oblika datuma",playback:"polo\u017eaju predvajanja, shranjenem s karto",MMMMYYYY:"julij 2015",MMMYYYY:"jul. 2015",MMMMDYYYY:"21. julij 2015",dddMMMDDYYYY:"torek, 21. julij 2015",MDDYYYY:"21. 07. 2015",YYYYMDD:"21/7/2015",MDDYY:"21. 07. 2015",
+YYYY:"2015",MDDYYYYhmma:"21/7/2015 ob 8:00",dddMMMDDhmma:"torek, 21. julij, ob 8:00",_localized:{}}});
