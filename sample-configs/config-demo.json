@@ -67,6 +67,10 @@
         "uri": "widgets/samplewidgets/Demo/Widget"
       },
       {
+        "label": "MyWidget",
+        "uri": "widgets/samplewidgets/MyWidget/Widget"
+      },
+      {
         "label": "UseJQuery",
         "uri": "widgets/samplewidgets/UseJQuery/Widget"
       },
