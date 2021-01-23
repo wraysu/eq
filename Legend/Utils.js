@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://@sbaseurl@/jsapi/jsapi/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define(["dojo/_base/array","jimu/LayerInfos/LayerInfos"],function(e,g){function f(b,c){return b.isLeaf()?c.layerState[b.id]?c.layerState[b.id].selected:b.getShowLegendOfWebmap():!0}var d=function(b){var c=[],d=g.getInstanceSync().getLayerInfoArray();e.forEach(d,function(a){var d=[];f(a,b)&&(!a.layerObject||"esri.layers.ArcGISDynamicMapServiceLayer"!==a.layerObject.declaredClass&&"esri.layers.ArcGISTiledMapServiceLayer"!==a.layerObject.declaredClass||e.forEach(a.layerObject.dynamicLayerInfos||a.layerObject.layerInfos,
+function(c){var e=null;a.traversal(function(a){if(a.subId===c.id)return a.isLeaf()&&!f(a,b)&&d.push(a.originOperLayer.mapService.subId),e=a,!0});e||d.push(c.id)}),a.isMapNotesLayerInfo()?e.forEach(a.getSubLayers(),function(a){f(a,b)&&c.push({layer:a.layerObject,title:"Map Notes - "+a.title})}):c.push({hideLayers:d,layer:a.layerObject,title:a.title}))});return c.reverse()};return{getLayerInfosParam:function(b){return d(b)}}});
