@@ -42,7 +42,7 @@ define(['dojo/_base/declare',
       },
       initgetEQ: function () {
         var eqURL = "https://dataapi.ncdr.nat.gov.tw/NCDRAPI/Opendata/NCDR/EQ";
-        fetch(eqURL)
+        fetch("https://cors-anywhere.herokuapp.com/"+eqURL)
           .then(res => {
             return res.json();
           }).then(result => {
