@@ -49,7 +49,8 @@ define(['dojo/_base/declare',
             this.eq = result[0];
             debugger;
             this.eqName.innerHTML =  this.eq.EventName;
-           
+            this.eqTime.innerHTML =  this.eq.EventDateTime.replace("T"," ");
+            this.eqMagnitude.innerHTML =  this.eq.Magnitude;
           });
       },
       initCharts: function () {
