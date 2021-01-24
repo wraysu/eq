@@ -32,20 +32,7 @@
     "links": [],
     "widgetOnScreen": {
         "widgets": [            
-      {
-        "position": {
-          "left": 55,
-          "top": 45,
-          "relativeTo": "map"
-        },
-        "placeholderIndex": 1,
-        "id": "_5",
-        "name": "chartJS",
-        "version": "1.0",
-        "closeable": true,
-        "uri": "widgets/chartJS/Widget",
-        "openAtStart": true
-      },
+      
       {
                 "uri": "themes/PlateauTheme/widgets/HeaderController/Widget",
                 "position": {
@@ -171,7 +158,60 @@
                 "version": "2.8",
                 "id": "widgets_ExtentNavigate_Widget_30",
                 "name": "ExtentNavigate"
-            }
+            },
+            {
+                "position": {
+                  "left": 55,
+                  "top": 45,
+                  "relativeTo": "map"
+                },
+                "placeholderIndex": 1,
+                "id": "_5",
+                "name": "chartJS",
+                "version": "1.0",
+                "closeable": true,
+                "uri": "widgets/chartJS/Widget",
+                "openAtStart": true
+              },
+              {
+                "position": {
+                  "left": 105,
+                  "top": 45,
+                  "relativeTo": "map"
+                },
+                "placeholderIndex": 1,
+                "id": "_6",
+                "version": "2.7",
+                "closeable": true,
+                "uri": ""
+              },
+              {
+                "position": {
+                  "left": 155,
+                  "top": 45,
+                  "relativeTo": "map"
+                },
+                "placeholderIndex": 2,
+                "id": "_7"
+              },
+              {
+                "position": {
+                  "left": 205,
+                  "top": 45,
+                  "relativeTo": "map"
+                },
+                "placeholderIndex": 3,
+                "id": "_8"
+              },
+              {
+                "position": {
+                  "left": 255,
+                  "top": 45,
+                  "relativeTo": "map"
+                },
+                "placeholderIndex": 4,
+                "id": "_9"
+              }
         ],
         "panel": {
             "uri": "jimu/OnScreenWidgetPanel",
