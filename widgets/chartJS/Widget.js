@@ -46,7 +46,8 @@ define(['dojo/_base/declare',
           .then(res => {
             return res.json();
           }).then(result => {
-            this.eq = result;
+            this.eq = result[0];
+            this.eqname.innerHTML =  this.eq.EventName;
             debugger;
           });
       },
