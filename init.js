@@ -105,7 +105,7 @@ var ie = (function () {
       window.path + 'libs/goldenlayout/goldenlayout-base.css',
       window.path + 'libs/goldenlayout/goldenlayout-light-theme.css',
       //Chart.js
-      window.path + 'libs/chartJS/Chart.js',
+      //window.path + 'libs/chartJS/Chart.js',
       window.path + 'libs/chartJS/Chart.bundle.js'
 
 
