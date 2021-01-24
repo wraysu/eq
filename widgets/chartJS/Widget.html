@@ -1,0 +1,37 @@
+<div>
+  <table>
+	  <tr class="spaceUnder">
+      <td colspan="2">
+        ${nls.selectLayer} <div id="layerChooserNode"></div>
+      </td>
+	  </tr>
+	  <tr class="spaceUnder">
+      <td>
+        <span> ${nls.selectXField} </span><br>
+        <div data-dojo-attach-point="selectXContainer"></div>
+      </td>
+      <td>
+       <span> ${nls.selectYField} </span><br>
+       <div data-dojo-attach-point="selectYContainer"></div>
+    
+      </td>
+	  </tr>
+	  <tr class="spaceUnder">
+      <td>
+        <div id="executeJimuButton" class="jimu-btn" data-dojo-attach-event="onclick:gettingLayer"> ${nls.execute} </div>
+      </td>
+	  </tr>
+  </table>
+  <hr>
+  <div data-dojo-attach-point="tabNode"></div>
+    <div data-dojo-attach-point="lineTabNode">
+      <div data-dojo-attach-point="containerNode" class="chart-container">
+        <canvas data-dojo-attach-point="canvas"></canvas>
+      </div>
+    </div>
+    <div data-dojo-attach-point="barTabNode">
+      <div data-dojo-attach-point="containerNode2" class="chart-container">
+        <canvas data-dojo-attach-point="barCanvas"></canvas>
+      </div>
+   </div>
+</div>
