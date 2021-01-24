@@ -44,7 +44,6 @@
         "version": "1.0",
         "closeable": true,
         "uri": "widgets/chartJS/Widget",
-        "config": "configs/chartJS/config__5.json",
         "openAtStart": true
       },
       {
