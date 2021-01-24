@@ -6,4 +6,4 @@ define({root:{
     label1: "我的widget.",
     label2: "隨便你"
 },
-"zh-tw": true    });
+"zh-TW": true    });
