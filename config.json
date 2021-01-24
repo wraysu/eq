@@ -31,8 +31,23 @@
     "geometryService": "https://utility.arcgisonline.com/arcgis/rest/services/Geometry/GeometryServer",
     "links": [],
     "widgetOnScreen": {
-        "widgets": [
-            {
+        "widgets": [            
+      {
+        "position": {
+          "left": 55,
+          "top": 45,
+          "relativeTo": "map"
+        },
+        "placeholderIndex": 1,
+        "id": "_5",
+        "name": "chartJS",
+        "version": "1.0",
+        "closeable": true,
+        "uri": "widgets/chartJS/Widget",
+        "config": "configs/chartJS/config__5.json",
+        "openAtStart": true
+      },
+      {
                 "uri": "themes/PlateauTheme/widgets/HeaderController/Widget",
                 "position": {
                     "left": 0,
