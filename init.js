@@ -1,6 +1,7 @@
 // All material copyright ESRI, All Rights Reserved, unless otherwise specified.
 // See http://@sbaseurl@/jsapi/jsapi/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
-///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
 // Copyright © 2014 - 2018 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
@@ -20,7 +21,7 @@ var dojoConfig, jimuConfig;
 
 /*global weinreUrl, loadResources, _loadPolyfills, loadingCallback, debug, allCookies, unescape */
 
-var ie = (function() {
+var ie = (function () {
 
   var undef,
     v = 3,
@@ -28,14 +29,14 @@ var ie = (function() {
     all = div.getElementsByTagName('i');
 
   div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->';
-  while(all[0]){
+  while (all[0]) {
     div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->';
   }
   return v > 4 ? v : undef;
 }());
 
-(function(argument) {
-  if (ie < 8){
+(function (argument) {
+  if (ie < 8) {
     var mainLoading = document.getElementById('main-loading');
     var appLoading = document.getElementById('app-loading');
     var ieNotes = document.getElementById('ie-note');
@@ -46,8 +47,8 @@ var ie = (function() {
   }
 
   //handle edit=true parameter
-  if(!window.isXT && window.location.pathname.indexOf('/apps/webappviewer') > -1 &&
-    window.queryObject.edit === 'true' && window.queryObject.appid){
+  if (!window.isXT && window.location.pathname.indexOf('/apps/webappviewer') > -1 &&
+    window.queryObject.edit === 'true' && window.queryObject.appid) {
     window.location.href = window.location.href.replace('webappviewer', 'webappbuilder');
     return;
   }
@@ -62,12 +63,12 @@ var ie = (function() {
   } else if (!window.path) {
     console.error('no path.');
   } else {
-    if(window.location.protocol === 'https:'){
+    if (window.location.protocol === 'https:') {
       var reg = /^http:\/\//i;
-      if(reg.test(window.apiUrl)){
+      if (reg.test(window.apiUrl)) {
         window.apiUrl = window.apiUrl.replace(reg, 'https://');
       }
-      if(reg.test(window.path)){
+      if (reg.test(window.path)) {
         window.path = window.path.replace(reg, 'https://');
       }
     }
@@ -84,7 +85,7 @@ var ie = (function() {
 
     setLocale();
 
-    if(window.isRTL){
+    if (window.isRTL) {
       dojoConfig.has['dojo-bidi'] = true;
     }
 
@@ -102,7 +103,12 @@ var ie = (function() {
       window.path + 'libs/cropperjs/cropper.css',
       //because we have jimu/dijit/GridLayout dijit, so we import this css here
       window.path + 'libs/goldenlayout/goldenlayout-base.css',
-      window.path + 'libs/goldenlayout/goldenlayout-light-theme.css'
+      window.path + 'libs/goldenlayout/goldenlayout-light-theme.css',
+      //Chart.js
+      window.path + 'libs/chartJS/Chart.js',
+      window.path + 'libs/chartJS/Chart.bundle.js'
+
+
     ]);
 
     if (window.apiUrl.substr(window.apiUrl.length - 'arcgis-js-api/'.length,
@@ -190,29 +196,29 @@ var ie = (function() {
       mapId: 'map'
     };
 
-    loadResources(resources, null, function(url, loaded) {
+    loadResources(resources, null, function (url, loaded) {
       if (typeof loadingCallback === 'function') {
         loadingCallback(url, loaded, resources.length);
       }
-    }, function() {
+    }, function () {
       continueLoad();
 
-      function continueLoad(){
-        if(typeof require === 'undefined'){
-          if (window.console){
+      function continueLoad() {
+        if (typeof require === 'undefined') {
+          if (window.console) {
             console.log('Waiting for API loaded.');
           }
           setTimeout(continueLoad, 100);
           return;
         }
 
-        _loadPolyfills("", function() {
+        _loadPolyfills("", function () {
           window.appInfo.appPath = window.path;
           window.avoidRequireCache(require);
-          require(['dojo/aspect', 'dojo/request/util'], function(aspect, requestUtil) {
+          require(['dojo/aspect', 'dojo/request/util'], function (aspect, requestUtil) {
             window.avoidRequestCache(aspect, requestUtil);
 
-            require(['jimu/main', 'libs/main'], function(jimuMain) {
+            require(['jimu/main', 'libs/main'], function (jimuMain) {
               //loadingCallback('jimu', resources.length + 1, resources.length);
               jimuMain.initApp();
             });
@@ -222,33 +228,33 @@ var ie = (function() {
     });
   }
 
-  function setLocale(){
-    if(window.queryObject.locale){
+  function setLocale() {
+    if (window.queryObject.locale) {
       dojoConfig.locale = window.queryObject.locale.toLowerCase();
       window._setRTL(dojoConfig.locale);
       return;
     }
 
-    if(allCookies.esri_auth){
+    if (allCookies.esri_auth) {
       /*jshint -W061 */
       var userObj = eval('(' + unescape(allCookies.esri_auth) + ')');
-      if(userObj.culture){
+      if (userObj.culture) {
         dojoConfig.locale = userObj.culture;
       }
     }
 
-    if(window.queryObject.mode){
-      if(allCookies.wab_locale){
+    if (window.queryObject.mode) {
+      if (allCookies.wab_locale) {
         dojoConfig.locale = allCookies.wab_locale;
       }
-    }else{
-      if(allCookies.wab_app_locale){
+    } else {
+      if (allCookies.wab_app_locale) {
         dojoConfig.locale = allCookies.wab_app_locale;
       }
     }
 
 
-    if(!dojoConfig.locale){
+    if (!dojoConfig.locale) {
       dojoConfig.locale = navigator.language ? navigator.language : navigator.userLanguage;
     }
 
