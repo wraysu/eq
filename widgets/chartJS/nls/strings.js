@@ -7,7 +7,8 @@ define({
     selectChart: "Select chart type",
     execute: "Execute",
     lineTitleTab: "Line",
-    barTitleTab: "Bar"
+    barTitleTab: "Bar",
+    eqname:"說明"
   }),
   "es": 0
 });
