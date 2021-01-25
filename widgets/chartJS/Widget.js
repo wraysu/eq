@@ -184,11 +184,10 @@ define(['dojo/_base/declare',
         this.layer = this.map.getLayer(dijit.byId("layerChooserNodeEvent").value)
         this.url = this.layer.url
         var fields = this.layer.fields      
-        const query = { // autocasts as Query
-          where: "1=1", // select all features
-          returnGeometry: false,
-          outFields: ["*"]
-        }; 
+        var query = new Query()
+        query.where = "1=1"
+        query.returnGeometry = false;
+        query.outFields = ["*"]
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           console.log(results.features); 
           results.features.forEach(item=>{
