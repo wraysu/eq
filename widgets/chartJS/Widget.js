@@ -183,11 +183,7 @@ define(['dojo/_base/declare',
       filterLayer: function () {
         this.layer = this.map.getLayer(dijit.byId("layerChooserNodeEvent").value)
         this.url = this.layer.url
-        var fields = this.layer.fields
-        const layer = new FeatureLayer({
-          url: this.url
-        });
-
+        var fields = this.layer.fields      
         const query = { // autocasts as Query
           where: "1=1", // select all features
           returnGeometry: false,
