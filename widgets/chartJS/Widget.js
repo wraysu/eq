@@ -224,6 +224,7 @@ define(['dojo/_base/declare',
               tmpFeatureLayer.add(m);
             }
           })
+          this.map.add(tmpFeatureLayer)
         }))
         debugger;
       },
