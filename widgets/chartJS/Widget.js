@@ -41,6 +41,44 @@ define(['dojo/_base/declare',
         this.initLayerChooser()
         this.initCharts()
       },
+
+      gettingLayer: function (oID) {
+        var query = new Query()
+        if (oID) {
+          query.where = "nid =in ('" + oID.toString().replace(/,/g, '\',\'') + "')"
+        } else {
+          query.where = "1=1"
+        }
+        query.geometry = this.extensionFilter
+        query.returnGeometry = false
+        query.outFields = [this.fieldX, this.fieldY]
+        new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
+          this.render(results)
+        }))
+      },
+
+      render: function (results) {
+        var map = []
+        var labels = []
+
+        var def = new Deferred()
+        def.resolve(':)');
+        def.then(lang.hitch(this, function () {
+          for (i in results.features) {
+            map.push({
+              x: results.features[i].attributes[this.fieldX],
+              y: results.features[i].attributes[this.fieldY]
+            })
+          }
+        })).then(lang.hitch(this, function () {
+          for (i in map) {
+            labels.push(map[i].x)
+          }
+        })).then(lang.hitch(this, function () {
+          this.lineChart.updateChart(labels, map)
+          this.barChart.updateChart(labels, map)
+        }))
+      },
       initgetEQ: function () {
         var eqURL = "https://dataapi.ncdr.nat.gov.tw/NCDRAPI/Opendata/NCDR/EQ";
         fetch("https://cors-anywhere.herokuapp.com/" + eqURL)
@@ -166,43 +204,7 @@ define(['dojo/_base/declare',
         }
       },
 
-      gettingLayer: function (oID) {
-        var query = new Query()
-        if (oID) {
-          query.where = "nid =in ('" + oID.toString().replace(/,/g, '\',\'') + "')"
-        } else {
-          query.where = "1=1"
-        }
-        query.geometry = this.extensionFilter
-        query.returnGeometry = false
-        query.outFields = [this.fieldX, this.fieldY]
-        new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
-          this.render(results)
-        }))
-      },
 
-      render: function (results) {
-        var map = []
-        var labels = []
-
-        var def = new Deferred()
-        def.resolve(':)');
-        def.then(lang.hitch(this, function () {
-          for (i in results.features) {
-            map.push({
-              x: results.features[i].attributes[this.fieldX],
-              y: results.features[i].attributes[this.fieldY]
-            })
-          }
-        })).then(lang.hitch(this, function () {
-          for (i in map) {
-            labels.push(map[i].x)
-          }
-        })).then(lang.hitch(this, function () {
-          this.lineChart.updateChart(labels, map)
-          this.barChart.updateChart(labels, map)
-        }))
-      },
 
       onClose: function () {
         this.extensionEvent.remove()
