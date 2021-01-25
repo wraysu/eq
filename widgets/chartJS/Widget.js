@@ -183,7 +183,6 @@ define(['dojo/_base/declare',
 
       filterLayer: function () {
         var layers = [];
-
         for (var i = 0; i < this.map.graphicsLayerIds.length; i++) {
           var layerObject = this.map.getLayer(this.map.graphicsLayerIds[i]);
           if (layerObject.url) {
@@ -201,7 +200,7 @@ define(['dojo/_base/declare',
         };
         featureCollection.layerDefinition.geometryType = layers[0].geometryType;
         featureCollection.layerDefinition.spatialReference = this.map.spatialReference;
-        featureCollection.layerDefinition.fields = layer[0].fields
+        featureCollection.layerDefinition.fields = layers[0].fields;
         var tmpFeatureLayer = new FeatureLayer(featureCollection, {
           id: 'tempFLayer'
         }
