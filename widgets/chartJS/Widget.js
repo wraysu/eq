@@ -168,15 +168,14 @@ define(['dojo/_base/declare',
 
       gettingLayer: function (oID) {
         var query = new Query()
-        if (oID) {
-          query.where = "nid =in ('" + oID.toString().replace(/,/g, '\',\'') + "')"
-        } else {
-          query.where = "nid =in ('" + this.eqID.toString().replace(/,/g, '\',\'') + "')"
-        }
+        
+        query.where = "1=1"
+        var features= this.layer.features;
+        debugger;
+        features.filter(item=> this.eqID.indexof(item.nid))
         if(!this.extensionFilter) this.extensionFilter = this.map.extent;
         query.geometry = this.extensionFilter
         query.returnGeometry = false;
-        console.log(query.where);
         query.outFields = ['nid',this.fieldX, this.fieldY]
    //     query.outFields = '*';
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
