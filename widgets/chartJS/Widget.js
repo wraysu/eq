@@ -9,6 +9,7 @@ define(['dojo/_base/declare',
   'dijit/layout/TabContainer',
   'dijit/layout/ContentPane',
   './chartJS',
+  'esri.layers.FeatureLayer',
   './webMapLayersIds',
   'esri/tasks/query',
   'esri/tasks/QueryTask',
@@ -16,7 +17,7 @@ define(['dojo/_base/declare',
   'dojo/domReady!'],
   function (declare, BaseWidget, on, lang, Deferred, dom,
     Select, Button, TabContainer, ContentPane,
-    chartJS, webMapLayersIds,
+    chartJS,FeatureLayer, webMapLayersIds,
     Query, QueryTask,
     TabContainer3) {
 
@@ -182,6 +183,22 @@ define(['dojo/_base/declare',
 
       filterLayer: function () {
         this.layer = this.map.getLayer(dijit.byId("layerChooserNodeEvent").value)
+        var featureCollection = {
+          "layerDefinition": {
+            "geometryType": "esriGeometryPoint",
+            "objectIdField": "ObjectID",
+            "spatialReference" : mapSpRef,  
+            "fields": [{
+              "name": "ObjectID",
+                "alias": "ObjectID",
+                "type": "esriFieldTypeOID"
+            }]
+          }, 
+           "featureSet": {"features" : []}
+        };
+        var tmpFeatureLayer = new FeatureLayer(featureCollection , {
+          id:'tempFLayer'}
+        );
         this.url = this.layer.url
         var fields = this.layer.fields      
         var query = new Query()
