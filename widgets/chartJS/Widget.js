@@ -196,6 +196,7 @@ define(['dojo/_base/declare',
           }, 
            "featureSet": {"features" : []}
         };
+        featureCollection.layerDefinition.geometryType = this.layer.geometryType;
         var tmpFeatureLayer = new FeatureLayer(featureCollection , {
           id:'tempFLayer'}
         );
@@ -203,7 +204,7 @@ define(['dojo/_base/declare',
         var fields = this.layer.fields      
         var query = new Query()
         query.where = "1=1"
-        query.returnGeometry = false;
+        query.returnGeometry = true;
         query.outFields = ["*"]
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           console.log(results.features); 
