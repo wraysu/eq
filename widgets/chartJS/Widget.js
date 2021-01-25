@@ -31,8 +31,8 @@ define(['dojo/_base/declare',
       barChart: null,
       extensionFilter: null,
       extensionEvent: null,
-      eq:null,
-      eqID:[],
+      eq: null,
+      eqID: [],
 
       startup: function () {
         this.inherited(arguments)
@@ -43,18 +43,19 @@ define(['dojo/_base/declare',
       },
       initgetEQ: function () {
         var eqURL = "https://dataapi.ncdr.nat.gov.tw/NCDRAPI/Opendata/NCDR/EQ";
-        fetch("https://cors-anywhere.herokuapp.com/"+eqURL)
+        fetch("https://cors-anywhere.herokuapp.com/" + eqURL)
           .then(res => {
             return res.json();
           }).then(result => {
-            this.eq = result[0].Data.forEach(item=>{
-              item.ID = item.WGS84_Lon + '_'+ item.WGS84_Lat;
-              this.eqID.push(item.WGS84_Lon + '_'+ item.WGS84_Lat)
-          });
+            result[0].Data.forEach(item => {
+              item.ID = item.WGS84_Lon + '_' + item.WGS84_Lan;
+              this.eqID.push(item.WGS84_Lon + '_' + item.WGS84_Lan)
+            });
+            this.eq = result[0];
             debugger;
-            this.eqName.innerHTML =  this.eq.EventName;
-            this.eqTime.innerHTML =  this.eq.EventDateTime.replace("T"," ");
-            this.eqMagnitude.innerHTML =  this.eq.Magnitude;
+            this.eqName.innerHTML = this.eq.EventName;
+            this.eqTime.innerHTML = this.eq.EventDateTime.replace("T", " ");
+            this.eqMagnitude.innerHTML = this.eq.Magnitude;
             gettingLayer(this.eqID);
           });
       },
@@ -167,11 +168,11 @@ define(['dojo/_base/declare',
 
       gettingLayer: function (oID) {
         var query = new Query()
-        if(oID){
+        if (oID) {
           query.where = "nid =in ('" + oID.toString().replace(/,/g, '\',\'') + "')"
-        }else{
+        } else {
           query.where = "1=1"
-        }  
+        }
         query.geometry = this.extensionFilter
         query.returnGeometry = false
         query.outFields = [this.fieldX, this.fieldY]
