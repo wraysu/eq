@@ -171,7 +171,7 @@ define(['dojo/_base/declare',
         if (oID) {
           query.where = "nid =in ('" + oID.toString().replace(/,/g, '\',\'') + "')"
         } else {
-          query.where = "1=1"
+          query.where = "nid =in ('" + this.eqID.toString().replace(/,/g, '\',\'') + "')"
         }
         query.geometry = this.extensionFilter
         query.returnGeometry = false
