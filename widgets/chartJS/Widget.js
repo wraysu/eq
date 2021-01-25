@@ -9,7 +9,7 @@ define(['dojo/_base/declare',
   'dijit/layout/TabContainer',
   'dijit/layout/ContentPane',
   './chartJS',
-  'esri.layers.FeatureLayer',
+  'esri/layers/FeatureLayer',
   './webMapLayersIds',
   'esri/tasks/query',
   'esri/tasks/QueryTask',
@@ -17,7 +17,7 @@ define(['dojo/_base/declare',
   'dojo/domReady!'],
   function (declare, BaseWidget, on, lang, Deferred, dom,
     Select, Button, TabContainer, ContentPane,
-    chartJS,FeatureLayer, webMapLayersIds,
+    chartJS, FeatureLayer, webMapLayersIds,
     Query, QueryTask,
     TabContainer3) {
 
@@ -34,7 +34,7 @@ define(['dojo/_base/declare',
       extensionEvent: null,
       eq: null,
       eqID: [],
-      eqOID:[],
+      eqOID: [],
 
       startup: function () {
         this.inherited(arguments)
@@ -182,41 +182,48 @@ define(['dojo/_base/declare',
       },
 
       filterLayer: function () {
-        this.layer = this.map.getLayer(dijit.byId("layerChooserNodeEvent").value)
+        var layers = [];
+
+        for (var i = 0; i < map.graphicsLayerIds.length; i++) {
+          var layerObject = map.getLayer(map.graphicsLayerIds[i]);
+          if (layerObject.url) {
+            layers.push(layerObject)
+          }
+        }
         var featureCollection = {
           "layerDefinition": {
             "geometryType": "esriGeometryPoint",
             "objectIdField": "ObjectID",
-            "spatialReference" : mapSpRef,  
-            "fields": [{
-              "name": "ObjectID",
-                "alias": "ObjectID",
-                "type": "esriFieldTypeOID"
-            }]
-          }, 
-           "featureSet": {"features" : []}
+            "spatialReference": mapSpRef,
+            "fields": []
+          },
+          "featureSet": { "features": [] }
         };
-        featureCollection.layerDefinition.geometryType = this.layer.geometryType;
-        var tmpFeatureLayer = new FeatureLayer(featureCollection , {
-          id:'tempFLayer'}
+        featureCollection.layerDefinition.geometryType = layers[0].geometryType;
+        var tmpFeatureLayer = new FeatureLayer(featureCollection, {
+          id: 'tempFLayer'
+        }
         );
-        this.url = this.layer.url
-        var fields = this.layer.fields      
+        this.url = layers[0].url
+        var fields = this.layer.fields
         var query = new Query()
         query.where = "1=1"
         query.returnGeometry = true;
         query.outFields = ["*"]
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
-          console.log(results.features); 
-          results.features.forEach(item=>{
-            var fData = this.eq.Data.filter(a=> a.ID == item.attributes.nid);
-            if (fData.length >0) {
+          console.log(results.features);
+          results.features.forEach(item => {
+            var fData = this.eq.Data.filter(a => a.ID == item.attributes.nid);
+            if (fData.length > 0) {
+              var m =  new esri.Graphic(esri.geometry.geographicToWebMercator(new esri.geometry.Point(item.geometry.x, item.geometry.y)));                    
+              m.attributes = item.attributes;
               item.attributes.PGA = fData[0].PGA;
               item.attributes.PGV = fData[0].PGV;
               item.attributes.Intensity = fData[0].Intensity;
+              tmpFeatureLayer.add(m);
             }
-          }) 
-        }))       
+          })
+        }))
         debugger;
       },
 
