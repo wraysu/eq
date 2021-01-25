@@ -200,12 +200,13 @@ define(['dojo/_base/declare',
           "featureSet": { "features": [] }
         };
         featureCollection.layerDefinition.geometryType = layers[0].geometryType;
+        featureCollection.layerDefinition.fields = layer[0].fields
         var tmpFeatureLayer = new FeatureLayer(featureCollection, {
           id: 'tempFLayer'
         }
         );
         this.url = layers[0].url
-        var fields = this.layer.fields
+        
         var query = new Query()
         query.where = "1=1"
         query.returnGeometry = true;
