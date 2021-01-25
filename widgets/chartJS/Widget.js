@@ -52,10 +52,12 @@ define(['dojo/_base/declare',
               this.eqID.push(item.WGS84_Lon + '_' + item.WGS84_Lan)
             });
             this.eq = result[0];
-            debugger;
             this.eqName.innerHTML = this.eq.EventName;
             this.eqTime.innerHTML = this.eq.EventDateTime.replace("T", " ");
             this.eqMagnitude.innerHTML = this.eq.Magnitude;
+            var features = this.layer.features;
+            debugger;
+            features.filter(item => this.eqID.indexof(item.nid))
             this.gettingLayer(this.eqID);
           });
       },
@@ -168,16 +170,12 @@ define(['dojo/_base/declare',
 
       gettingLayer: function (oID) {
         var query = new Query()
-        
         query.where = "1=1"
-        var features= this.layer.features;
-        debugger;
-        features.filter(item=> this.eqID.indexof(item.nid))
-        if(!this.extensionFilter) this.extensionFilter = this.map.extent;
+        if (!this.extensionFilter) this.extensionFilter = this.map.extent;
         query.geometry = this.extensionFilter
         query.returnGeometry = false;
-        query.outFields = ['nid',this.fieldX, this.fieldY]
-   //     query.outFields = '*';
+        query.outFields = ['nid', this.fieldX, this.fieldY]
+        //     query.outFields = '*';
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           this.render(results)
         }))
