@@ -173,6 +173,7 @@ define(['dojo/_base/declare',
         } else {
           query.where = "nid =in ('" + this.eqID.toString().replace(/,/g, '\',\'') + "')"
         }
+        if(this.extensionFilter) this.extensionFilter = this.map.extent;
         query.geometry = this.extensionFilter
         query.returnGeometry = false
         query.outFields = [this.fieldX, this.fieldY]
