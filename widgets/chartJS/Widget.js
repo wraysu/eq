@@ -202,7 +202,7 @@ define(['dojo/_base/declare',
         featureCollection.layerDefinition.spatialReference = this.map.spatialReference;
         featureCollection.layerDefinition.fields = layers[0].fields;
         var tmpFeatureLayer = new FeatureLayer(featureCollection, {
-          id: 'tempFLayer'
+          id: layers[0].id
         }
         );
         this.url = layers[0].url
