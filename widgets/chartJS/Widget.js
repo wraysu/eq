@@ -33,6 +33,7 @@ define(['dojo/_base/declare',
       extensionEvent: null,
       eq: null,
       eqID: [],
+      eqoID:[],
 
       startup: function () {
         this.inherited(arguments)
@@ -55,10 +56,8 @@ define(['dojo/_base/declare',
             this.eqName.innerHTML = this.eq.EventName;
             this.eqTime.innerHTML = this.eq.EventDateTime.replace("T", " ");
             this.eqMagnitude.innerHTML = this.eq.Magnitude;
-            var features = this.layer.features;
             debugger;
-            features.filter(item => this.eqID.indexof(item.nid))
-            this.gettingLayer(this.eqID);
+            this.filterLayer();
           });
       },
       initCharts: function () {
@@ -179,6 +178,25 @@ define(['dojo/_base/declare',
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           this.render(results)
         }))
+      },
+
+      filterLayer: function () {
+        const layer = new FeatureLayer({
+          url: this.url
+        });
+
+        const query = { // autocasts as Query
+          where: "1=1", // select all features
+          returnGeometry: false,
+          outFields: ["*"]
+        };        
+        layer.queryFeatures(query).then(function(results){
+          console.log(results.features); 
+          results.features.forEach(item=>{
+            if (eqID.indexof(item.attributes.nid) > -1) this.eqoID.phsh(item.attributes.objectID)
+          }) 
+        });
+        debugger;
       },
 
       render: function (results) {
