@@ -32,7 +32,7 @@ define(['dojo/_base/declare',
       extensionFilter: null,
       extensionEvent: null,
       eq:null,
-      eqID:null,
+      eqID:[],
 
       startup: function () {
         this.inherited(arguments)
