@@ -47,7 +47,7 @@ define(['dojo/_base/declare',
           .then(res => {
             return res.json();
           }).then(result => {
-            this.eq = result[0].foreach(item=>{
+            this.eq = result[0].forEach(item=>{
               item.ID = item.WGS84_Lon + '_'+ item.WGS84.Lat;
               this.eqID.push(item.WGS84_Lon + '_'+ item.WGS84.Lat)
           });
