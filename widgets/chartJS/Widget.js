@@ -191,7 +191,12 @@ define(['dojo/_base/declare',
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           console.log(results.features); 
           results.features.forEach(item=>{
-            if (this.eqID.indexOf(item.attributes.nid) > -1) this.eqOID.push(item.attributes.objectID)
+            var fData = this.eq.filter(a=> a.ID == item.attributes.nid);
+            if (fData.length >0) {
+              item.attributes.PGA = fData[0].PGA;
+              item.attributes.PGV = fData[0].PGV;
+              item.attributes.Intensity = fData[0].Intensity;
+            }
           }) 
         }))       
         debugger;
