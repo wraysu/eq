@@ -32,6 +32,7 @@ define(['dojo/_base/declare',
       extensionFilter: null,
       extensionEvent: null,
       eq:null,
+      eqID:null,
 
       startup: function () {
         this.inherited(arguments)
@@ -46,11 +47,15 @@ define(['dojo/_base/declare',
           .then(res => {
             return res.json();
           }).then(result => {
-            this.eq = result[0];
+            this.eq = result[0].foreach(item=>{
+              item.ID = item.WGS84_Lon + '_'+ item.WGS84.Lat;
+              this.eqID.push(item.WGS84_Lon + '_'+ item.WGS84.Lat)
+          });
             debugger;
             this.eqName.innerHTML =  this.eq.EventName;
             this.eqTime.innerHTML =  this.eq.EventDateTime.replace("T"," ");
             this.eqMagnitude.innerHTML =  this.eq.Magnitude;
+            gettingLayer(this.eqID);
           });
       },
       initCharts: function () {
@@ -160,9 +165,13 @@ define(['dojo/_base/declare',
         }
       },
 
-      gettingLayer: function () {
+      gettingLayer: function (oID) {
         var query = new Query()
-        query.where = "1=1"
+        if(oID){
+          query.where = "nid =in ('" + oID.toString().replace(/,/g, '\',\'') + "')"
+        }else{
+          query.where = "1=1"
+        }  
         query.geometry = this.extensionFilter
         query.returnGeometry = false
         query.outFields = [this.fieldX, this.fieldY]
