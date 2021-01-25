@@ -202,7 +202,7 @@ define(['dojo/_base/declare',
         featureCollection.layerDefinition.spatialReference = this.map.spatialReference;
         featureCollection.layerDefinition.fields = layers[0].fields;
         var tmpFeatureLayer = new FeatureLayer(featureCollection, {
-          id: layers[0].id
+          id: layers[0].id + '_1'
         }
         );
         this.url = layers[0].url
@@ -224,7 +224,7 @@ define(['dojo/_base/declare',
               tmpFeatureLayer.add(m);
             }
           })
-          this.map.add(tmpFeatureLayer)
+          this.map.addLayer(tmpFeatureLayer)
         }))
         debugger;
       },
