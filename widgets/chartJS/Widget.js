@@ -182,7 +182,7 @@ define(['dojo/_base/declare',
       },
 
       filterLayer: function () {
-        this.layer = this.map.getLayer(layerId)
+        this.layer = this.map.getLayer(dijit.byId("layerChooserNodeEvent").value)
         this.url = this.layer.url
         var fields = this.layer.fields
         const layer = new FeatureLayer({
