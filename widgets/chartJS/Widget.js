@@ -48,8 +48,8 @@ define(['dojo/_base/declare',
             return res.json();
           }).then(result => {
             this.eq = result[0].Data.forEach(item=>{
-              item.ID = item.WGS84_Lon + '_'+ item.WGS84.Lat;
-              this.eqID.push(item.WGS84_Lon + '_'+ item.WGS84.Lat)
+              item.ID = item.WGS84_Lon + '_'+ item.WGS84_Lat;
+              this.eqID.push(item.WGS84_Lon + '_'+ item.WGS84_Lat)
           });
             debugger;
             this.eqName.innerHTML =  this.eq.EventName;
