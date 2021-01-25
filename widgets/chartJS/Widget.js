@@ -177,8 +177,8 @@ define(['dojo/_base/declare',
         query.geometry = this.extensionFilter
         query.returnGeometry = false;
         console.log(query.where);
-//        query.outFields = [this.fieldX, this.fieldY]
-        query.outFields = '*';
+        query.outFields = ['nid',this.fieldX, this.fieldY]
+   //     query.outFields = '*';
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           this.render(results)
         }))
