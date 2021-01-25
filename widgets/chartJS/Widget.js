@@ -194,12 +194,13 @@ define(['dojo/_base/declare',
           "layerDefinition": {
             "geometryType": "esriGeometryPoint",
             "objectIdField": "ObjectID",
-            "spatialReference": mapSpRef,
+            "spatialReference": null,
             "fields": []
           },
           "featureSet": { "features": [] }
         };
         featureCollection.layerDefinition.geometryType = layers[0].geometryType;
+        featureCollection.layerDefinition.spatialReference = this.map.spatialReference;
         featureCollection.layerDefinition.fields = layer[0].fields
         var tmpFeatureLayer = new FeatureLayer(featureCollection, {
           id: 'tempFLayer'
