@@ -33,7 +33,7 @@ define(['dojo/_base/declare',
       extensionEvent: null,
       eq: null,
       eqID: [],
-      eqoID:[],
+      eqOID:[],
 
       startup: function () {
         this.inherited(arguments)
@@ -191,7 +191,7 @@ define(['dojo/_base/declare',
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           console.log(results.features); 
           results.features.forEach(item=>{
-            if (this.eqID.indexOf(item.attributes.nid) > -1) this.eqoID.phsh(item.attributes.objectID)
+            if (this.eqID.indexOf(item.attributes.nid) > -1) this.eqOID.push(item.attributes.objectID)
           }) 
         }))       
         debugger;
