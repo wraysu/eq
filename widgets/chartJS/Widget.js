@@ -9,7 +9,6 @@ define(['dojo/_base/declare',
   'dijit/layout/TabContainer',
   'dijit/layout/ContentPane',
   './chartJS',
-  'esri/layers/FeatureLayer',
   './webMapLayersIds',
   'esri/tasks/query',
   'esri/tasks/QueryTask',
@@ -17,7 +16,7 @@ define(['dojo/_base/declare',
   'dojo/domReady!'],
   function (declare, BaseWidget, on, lang, Deferred, dom,
     Select, Button, TabContainer, ContentPane,
-    chartJS, FeatureLayer, webMapLayersIds,
+    chartJS, webMapLayersIds,
     Query, QueryTask,
     TabContainer3) {
 
@@ -193,13 +192,13 @@ define(['dojo/_base/declare',
           where: "1=1", // select all features
           returnGeometry: false,
           outFields: ["*"]
-        };        
-        layer.queryFeatures(query).then(function(results){
+        }; 
+        new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           console.log(results.features); 
           results.features.forEach(item=>{
             if (eqID.indexof(item.attributes.nid) > -1) this.eqoID.phsh(item.attributes.objectID)
           }) 
-        });
+        }))       
         debugger;
       },
 
