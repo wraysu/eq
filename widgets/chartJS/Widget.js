@@ -184,8 +184,8 @@ define(['dojo/_base/declare',
       filterLayer: function () {
         var layers = [];
 
-        for (var i = 0; i < map.graphicsLayerIds.length; i++) {
-          var layerObject = map.getLayer(map.graphicsLayerIds[i]);
+        for (var i = 0; i < this.map.graphicsLayerIds.length; i++) {
+          var layerObject = this.map.getLayer(map.graphicsLayerIds[i]);
           if (layerObject.url) {
             layers.push(layerObject)
           }
