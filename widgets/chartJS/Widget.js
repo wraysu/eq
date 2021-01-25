@@ -191,7 +191,7 @@ define(['dojo/_base/declare',
         new QueryTask(this.url).execute(query, lang.hitch(this, function (results) {
           console.log(results.features); 
           results.features.forEach(item=>{
-            if (eqID.indexof(item.attributes.nid) > -1) this.eqoID.phsh(item.attributes.objectID)
+            if (this.eqID.indexof(item.attributes.nid) > -1) this.eqoID.phsh(item.attributes.objectID)
           }) 
         }))       
         debugger;
