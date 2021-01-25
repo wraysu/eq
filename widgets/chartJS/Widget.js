@@ -194,13 +194,38 @@ define(['dojo/_base/declare',
             "geometryType": "esriGeometryPoint",
             "objectIdField": "ObjectID",
             "spatialReference": null,
-            "fields": []
+            "fields": [
+              {
+              "name": "fid",
+                "alias": "fid",
+                "type": "esriFieldTypeOID"
+            },
+            {
+              "name": "nid",
+                "alias": "nid",
+                "type": "esriFieldTypeString"
+            },
+            {
+              "name": "PGA",
+                "alias": "PGA",
+                "type": "esriFieldTypeSingle"
+            },
+            {
+              "name": "PGV",
+                "alias": "PGV",
+                "type": "esriFieldTypeSingle"
+            },
+            {
+              "name": "Intensity",
+                "alias": "Intensity",
+                "type": "esriFieldTypeSingle"
+            }
+          ]
           },
           "featureSet": { "features": [] }
         };
         featureCollection.layerDefinition.geometryType = layers[0].geometryType;
         featureCollection.layerDefinition.spatialReference = this.map.spatialReference;
-        featureCollection.layerDefinition.fields = layers[0].fields;
         var tmpFeatureLayer = new FeatureLayer(featureCollection, {
           id: layers[0].id + '_1'
         }
