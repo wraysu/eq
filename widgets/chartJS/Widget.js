@@ -227,7 +227,11 @@ define(['dojo/_base/declare',
         featureCollection.layerDefinition.geometryType = layers[0].geometryType;
         featureCollection.layerDefinition.spatialReference = this.map.spatialReference;
         var tmpFeatureLayer = new FeatureLayer(featureCollection, {
-          id: layers[0].id + '_1'
+          id: layers[0].id + '_1',
+          infoTemplate :new esri.InfoTemplate(
+            '${nid}' , 
+            '${Intensity}'
+          )
         }
         );
         this.url = layers[0].url
