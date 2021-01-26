@@ -266,6 +266,7 @@ define(['dojo/_base/declare',
           //    tmpFeatureLayer.setRenderer(Renderer);
 
         }))
+        layers[0].setVisibility(false)
         //建物加震度
         var buildingfeatureCollection = {
           "layerDefinition": {
@@ -336,7 +337,7 @@ define(['dojo/_base/declare',
           })
           this.map.addLayer(buildingLayer)
           //    tmpFeatureLayer.setRenderer(Renderer);
-
+          layers[1].setVisibility(false)
         }))
 
       },
