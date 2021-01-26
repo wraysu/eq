@@ -228,8 +228,8 @@ define(['dojo/_base/declare',
         featureCollection.layerDefinition.spatialReference = this.map.spatialReference;
         var tmpFeatureLayer = new FeatureLayer(featureCollection, {
           id: layers[0].id + '_1',
-          infoTemplate :new esri.InfoTemplate(
-            '${nid}' , 
+          infoTemplate: new esri.InfoTemplate(
+            '${nid}',
             '${Intensity}'
           )
         }
@@ -254,72 +254,69 @@ define(['dojo/_base/declare',
             }
           })
           var Renderer = {
-            type: "simple",  // autocasts as new SimpleRenderer()
-            symbol: { type: "simple-fill" },  // autocasts as new SimpleFillSymbol()
-            visualVariables: [{
-              type: "color",
-              field: "Intensity",
-              uniqueValueInfos: [{
-                value: 0,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "white"
-                }
-              }, {
-                value: 1,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "#e1ffe0"
-                }
-              }, {
-                value: 2,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "#33fe32"
-                }
-              }, {
-                value: 3,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "yellow"
-                }
-              }, {
-                value: 4,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "$fe8532"
-                }
-              }, {
-                value: 5,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "#ff5232"
-                }
-              }, {
-                value: 6,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "#c53d3d"
-                }
-              }, {
-                value: 7,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "#9b4645"
-                }
-              }, {
-                value: 8,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "#9b4b86"
-                }
-              }, {
-                value: 8,
-                symbol: {
-                  type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-                  color: "#b61fea"
-                }
-              }]
+            type: "unique-value",
+            field: "Intensity",
+            defaultSymbol: { type: "simple-fill" },
+            uniqueValueInfos: [{
+              value: 0,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "white"
+              }
+            }, {
+              value: 1,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "#e1ffe0"
+              }
+            }, {
+              value: 2,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "#33fe32"
+              }
+            }, {
+              value: 3,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "yellow"
+              }
+            }, {
+              value: 4,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "$fe8532"
+              }
+            }, {
+              value: 5,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "#ff5232"
+              }
+            }, {
+              value: 6,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "#c53d3d"
+              }
+            }, {
+              value: 7,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "#9b4645"
+              }
+            }, {
+              value: 8,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "#9b4b86"
+              }
+            }, {
+              value: 8,
+              symbol: {
+                type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+                color: "#b61fea"
+              }
             }]
           };
           tmpFeatureLayer.setRenderer(Renderer);
