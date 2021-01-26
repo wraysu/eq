@@ -1,20 +1,21 @@
 define(['dojo/_base/declare',
-  'jimu/BaseWidget',
-  'dojo/on',
-  'dojo/_base/lang',
-  'dojo/Deferred',
-  'dojo/dom',
-  'dijit/form/Select',
-  'dijit/form/Button',
-  'dijit/layout/TabContainer',
-  'dijit/layout/ContentPane',
-  './chartJS',
-  'esri/layers/FeatureLayer',
-  './webMapLayersIds',
-  'esri/tasks/query',
-  'esri/tasks/QueryTask',
-  'jimu/dijit/TabContainer3',
-  'dojo/domReady!'],
+    'jimu/BaseWidget',
+    'dojo/on',
+    'dojo/_base/lang',
+    'dojo/Deferred',
+    'dojo/dom',
+    'dijit/form/Select',
+    'dijit/form/Button',
+    'dijit/layout/TabContainer',
+    'dijit/layout/ContentPane',
+    './chartJS',
+    'esri/layers/FeatureLayer',
+    './webMapLayersIds',
+    'esri/tasks/query',
+    'esri/tasks/QueryTask',
+    'jimu/dijit/TabContainer3',
+    'dojo/domReady!'
+  ],
   function (declare, BaseWidget, on, lang, Deferred, dom,
     Select, Button, TabContainer, ContentPane,
     chartJS, FeatureLayer, webMapLayersIds,
@@ -57,7 +58,6 @@ define(['dojo/_base/declare',
             this.eqName.innerHTML = this.eq.EventName;
             this.eqTime.innerHTML = this.eq.EventDateTime.replace("T", " ");
             this.eqMagnitude.innerHTML = this.eq.Magnitude;
-            debugger;
             this.filterLayer();
           });
       },
@@ -189,13 +189,13 @@ define(['dojo/_base/declare',
             layers.push(layerObject)
           }
         }
+        //震度圖   
         var featureCollection = {
           "layerDefinition": {
             "geometryType": "esriGeometryPoint",
             "objectIdField": "ObjectID",
             "spatialReference": null,
-            "fields": [
-              {
+            "fields": [{
                 "name": "fid",
                 "alias": "fid",
                 "type": "esriFieldTypeOID"
@@ -218,77 +218,13 @@ define(['dojo/_base/declare',
               {
                 "name": "Intensity",
                 "alias": "Intensity",
-                "type": "esriFieldTypeSingle"
+                "type": "esriFieldTypeInteger"
               }
             ]
           },
-          "featureSet": { "features": [] }
-        };
-        var renderer = {
-          type: "unique-value",
-          field: "Intensity",
-          defaultSymbol: { type: "simple-fill" },
-          uniqueValueInfos: [{
-            value: 0,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "white"
-            }
-          }, {
-            value: 1,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "#e1ffe0"
-            }
-          }, {
-            value: 2,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "#33fe32"
-            }
-          }, {
-            value: 3,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "yellow"
-            }
-          }, {
-            value: 4,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "$fe8532"
-            }
-          }, {
-            value: 5,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "#ff5232"
-            }
-          }, {
-            value: 6,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "#c53d3d"
-            }
-          }, {
-            value: 7,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "#9b4645"
-            }
-          }, {
-            value: 8,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "#9b4b86"
-            }
-          }, {
-            value: 8,
-            symbol: {
-              type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-              color: "#b61fea"
-            }
-          }]
+          "featureSet": {
+            "features": []
+          }
         };
         featureCollection.layerDefinition.geometryType = layers[0].geometryType;
         featureCollection.layerDefinition.spatialReference = this.map.spatialReference;
@@ -298,9 +234,8 @@ define(['dojo/_base/declare',
             '${nid}',
             '${Intensity}'
           ),
-          renderer: renderer
-        }
-        );
+          //        renderer: Renderer
+        });
         this.url = layers[0].url
 
         var query = new Query()
@@ -312,19 +247,98 @@ define(['dojo/_base/declare',
           results.features.forEach(item => {
             var fData = this.eq.Data.filter(a => a.ID == item.attributes.nid);
             if (fData.length > 0) {
-              var m = new esri.Graphic(esri.geometry.geographicToWebMercator(new esri.geometry.Point(item.geometry.x, item.geometry.y)));
+              var symbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_DASHDOT, new esri.Color([0, 0, 0]), 0.1), this.fillCoror(fData[0].Intensity));
+              var m = new esri.Graphic(item.geometry);
               m.attributes = item.attributes;
-              item.attributes.PGA = fData[0].PGA;
-              item.attributes.PGV = fData[0].PGV;
-              item.attributes.Intensity = fData[0].Intensity;
+              m.attributes.PGA = fData[0].PGA;
+              m.attributes.PGV = fData[0].PGV;
+              m.attributes.Intensity = fData[0].Intensity;
+              //           var symbol = new  esri.symbol.SimpleFillSymbol(esri.symbols.SimpleFillSymbol.STYLE_SOLID, 
+              //             new esri.symbols.SimpleLineSymbol(esri.symbols.SimpleLineSymbol.STYLE_SOLID,
+              //             new esri.Color([98,194,204]), 2), new esri.Color([98,194,204,0.5])
+              //           );
+              m.setSymbol(symbol)
               tmpFeatureLayer.add(m);
             }
           })
-          
-     //     tmpFeatureLayer.setRenderer(Renderer);
+          tmpFeatureLayer.setOpacity(.50);
           this.map.addLayer(tmpFeatureLayer)
+          //    tmpFeatureLayer.setRenderer(Renderer);
+
         }))
-        debugger;
+        //建物加震度
+        var buildingfeatureCollection = {
+          "layerDefinition": {
+            "geometryType": "esriGeometryPoint",
+            "objectIdField": "ObjectID",
+            "spatialReference": null,
+            "fields": [{
+                "name": "PGA",
+                "alias": "PGA",
+                "type": "esriFieldTypeSingle"
+              },
+              {
+                "name": "PGV",
+                "alias": "PGV",
+                "type": "esriFieldTypeSingle"
+              },
+              {
+                "name": "Intensity",
+                "alias": "Intensity",
+                "type": "esriFieldTypeInteger"
+              }
+            ]
+          },
+          "featureSet": {
+            "features": []
+          }
+        };
+        buildingfeatureCollection.layerDefinition.geometryType = layers[1].geometryType;
+        buildingfeatureCollection.layerDefinition.spatialReference = this.map.spatialReference;
+        layers[1].fields.forEach(item => buildingfeatureCollection.layerDefinition.fields.push(item))
+        var buildingLayer = new FeatureLayer(buildingfeatureCollection, {
+          id: layers[1].id + '_1',
+          infoTemplate: new esri.InfoTemplate(
+            '${nid}',
+            'city:	${city}<br>town:	${town}<br>address:	${address}<br>totalfloor:	${totalfloor}<br>material:	${material}<br>builtdate:	${builtdate}<br>震度: ${Intensity}'
+          ),
+        });
+        var query = new Query()
+        query.where = "1=1"
+        query.returnGeometry = true;
+        query.outFields = ["*"]
+        new QueryTask(layers[1].url).execute(query, lang.hitch(this, function (results) {
+          console.log(results.features);
+          results.features.forEach(item => {
+            var fData = this.eq.Data.filter(a => a.ID == item.attributes.nid);
+
+            var symbol  = new esri.symbol.SimpleMarkerSymbol(
+              esri.symbol.SimpleMarkerSymbol.STYLE_CIRCLE, 10,
+              new esri.symbol.SimpleLineSymbol(
+                esri.symbol.SimpleLineSymbol.STYLE_SOLID, new esri.Color([0, 0, 0]), 1
+              ),
+              this.fillCoror((fData.length > 0) ? fData[0].Intensity : 0)
+            );
+            var m = new esri.Graphic(item.geometry);
+            m.attributes = item.attributes;
+            if (fData.length > 0) {
+              m.attributes.PGA = fData[0].PGA;
+              m.attributes.PGV = fData[0].PGV;
+              m.attributes.Intensity = fData[0].Intensity;
+            } else {
+              m.attributes.PGA = 0;
+              m.attributes.PGV = 0;
+              m.attributes.Intensity = 0;
+            }
+            m.setSymbol(symbol)
+            buildingLayer.add(m);
+
+          })
+          this.map.addLayer(buildingLayer)
+          //    tmpFeatureLayer.setRenderer(Renderer);
+
+        }))
+
       },
 
       render: function (results) {
@@ -349,7 +363,40 @@ define(['dojo/_base/declare',
           this.barChart.updateChart(labels, map)
         }))
       },
-
+      fillCoror: function (int) {
+        switch (parseInt(int)) {
+          case 0:
+            return "white"
+            break;
+          case 1:
+            return "#e1ffe0"
+            break;
+          case 2:
+            return "#33fe32"
+            break;
+          case 3:
+            return "yellow"
+            break;
+          case 4:
+            return "#fe8532"
+            break;
+          case 5:
+            return "#ff5232"
+            break;
+          case 6:
+            return "#c53d3d"
+            break;
+          case 7:
+            return "#9b4645"
+            break;
+          case 8:
+            return "#9b4b86"
+            break;
+          case 9:
+            return "#b61fea"
+            break;
+        }
+      },
       onClose: function () {
         this.extensionEvent.remove()
       }
