@@ -51,8 +51,8 @@ define(['dojo/_base/declare',
             return res.json();
           }).then(result => {
             result[0].Data.forEach(item => {
-              item.ID = item.WGS84_Lon + '_' + item.WGS84_Lan;
-              this.eqID.push(item.WGS84_Lon + '_' + item.WGS84_Lan)
+              item.ID = item.WGS84_Lon + '_' + item.WGS84_lat;
+              this.eqID.push(item.WGS84_Lon + '_' + item.WGS84_Lat)
             });
             this.eq = result[0];
             this.eqName.innerHTML = this.eq.EventName;
