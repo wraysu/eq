@@ -8,9 +8,10 @@ define({
     execute: "Execute",
     lineTitleTab: "Line",
     barTitleTab: "Bar",
-    eqname:"說明",
-    eqtime:"時間",
-    eqMagnitude:"規模"
+    eqname:"說明:",
+    eqtime:"時間:",
+    eqMagnitude:"規模:",
+    eqLocation:"位置:"
   }),
   "es": 0
 });

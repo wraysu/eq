@@ -36,13 +36,13 @@ define(['dojo/_base/declare',
       eq: null,
       eqID: [],
       eqOID: [],
+      Layers : [],
 
       startup: function () {
-        this.inherited(arguments)
+    //    this.inherited(arguments)
         this.initgetEQ()
-        this.initTabs()
-        this.initLayerChooser()
-        this.initCharts()
+    //    this.initTabs()
+        
       },
       initgetEQ: function () {
         var eqURL = "https://dataapi.ncdr.nat.gov.tw/NCDRAPI/Opendata/NCDR/EQ";
@@ -51,14 +51,19 @@ define(['dojo/_base/declare',
             return res.json();
           }).then(result => {
             result[0].Data.forEach(item => {
-              item.ID = item.WGS84_Lon + '_' + item.WGS84_lat;
+              item.ID = item.WGS84_Lon + '_' + item.WGS84_Lat;
               this.eqID.push(item.WGS84_Lon + '_' + item.WGS84_Lat)
             });
             this.eq = result[0];
-            this.eqName.innerHTML = this.eq.EventName;
-            this.eqTime.innerHTML = this.eq.EventDateTime.replace("T", " ");
-            this.eqMagnitude.innerHTML = this.eq.Magnitude;
+            this.eqName.innerHTML = '<h1>' + this.eq.EventName + '</h1>';
+            this.eqTime.innerHTML = '<h1>' + this.eq.EventDateTime.replace("T", " ") + '</h1>';
+            this.eqMagnitude.innerHTML = '<h1>' + this.eq.Magnitude + '</h1>';
+            this.eqLocation.innerHTML = '<h1>' + this.eq.EQ_WGS84_Lon +',' + this.eq.EQ_WGS84_Lat + '</h1>';
             this.filterLayer();
+            this.map.removeLayer(this.Layers[0]);
+            this.map.removeLayer(this.Layers[1]);
+    //        this.initLayerChooser()
+    //        this.initCharts()
           });
       },
       initCharts: function () {
@@ -95,13 +100,13 @@ define(['dojo/_base/declare',
         }, this.tabNode);
       },
 
-      onOpen: function () {
+   /*   onOpen: function () {
         this.extensionEvent = this.map.on('extent-change', lang.hitch(this, function (evt) {
           this.extensionFilter = evt.extent
           this.gettingLayer()
         }));
       },
-
+*/
       initLayerChooser: function () {
         var idForChangeEvent = "layerChooserNodeEvent";
 
@@ -168,7 +173,7 @@ define(['dojo/_base/declare',
         }
       },
 
-      gettingLayer: function (oID) {
+      gettingLayer: function () {
         var query = new Query()
         query.where = "1=1"
         if (!this.extensionFilter) this.extensionFilter = this.map.extent;
@@ -189,6 +194,7 @@ define(['dojo/_base/declare',
             layers.push(layerObject)
           }
         }
+        this.Layers = layers;
         //震度圖   
         var featureCollection = {
           "layerDefinition": {
