@@ -390,16 +390,16 @@ define(['dojo/_base/declare',
           case 5:
             return "#ff5232"
             break;
-          case 6:
+          case 5.5:
             return "#c53d3d"
             break;
-          case 7:
+          case 6:
             return "#9b4645"
             break;
-          case 8:
+          case 6.5:
             return "#9b4b86"
             break;
-          case 9:
+          case 7:
             return "#b61fea"
             break;
         }
