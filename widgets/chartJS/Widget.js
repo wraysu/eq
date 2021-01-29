@@ -64,8 +64,9 @@ define(['dojo/_base/declare',
             var PicSymbol = new esri.symbol.PictureMarkerSymbol(picPath, 37, 42);
             var eqPT =  new esri.Graphic(new esri.geometry.Point(this.eq.EQ_WGS84_Lon, this.eq.EQ_WGS84_Lat),PicSymbol); 
             var layer = new esri.layers.GraphicsLayer({
-              graphics: [eqPT]
+              graphics: []
             });
+            layer.add(eqPT)
             this.map.addLayer(layer);
             this.filterLayer();
             this.map.removeLayer(this.Layers[0]);
