@@ -59,6 +59,11 @@ define(['dojo/_base/declare',
             this.eqTime.innerHTML = '<h1>' + this.eq.EventDateTime.replace("T", " ") + '</h1>';
             this.eqMagnitude.innerHTML = '<h1>' + this.eq.Magnitude + '</h1>';
             this.eqLocation.innerHTML = '<h1>' + this.eq.EQ_WGS84_Lon +',' + this.eq.EQ_WGS84_Lat + '</h1>';
+            var picPath;
+            picPath = 'https://eocdss.ncdr.nat.gov.tw/web/images/other/Red_glow.gif';
+            var PicSymbol = new esri.symbol.PictureMarkerSymbol(picPath, 37, 42);
+            var eqPT =  new esri.Graphic(esri.geometry.geographicToWebMercator(new esri.geometry.Point(this.eq.EQ_WGS84_Lon, this.eq.EQ_WGS84_Lat)),PicSymbol); 
+            map.graphics.add(eqPT);
             this.filterLayer();
             this.map.removeLayer(this.Layers[0]);
             this.map.removeLayer(this.Layers[1]);
