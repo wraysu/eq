@@ -66,7 +66,7 @@ define(['dojo/_base/declare',
             var layer = new esri.layers.GraphicsLayer({
               graphics: [eqPT]
             });
-            map.addLayer(layer);
+            this.map.add(layer);
             this.filterLayer();
             this.map.removeLayer(this.Layers[0]);
             this.map.removeLayer(this.Layers[1]);
