@@ -63,7 +63,7 @@ define(['dojo/_base/declare',
             picPath = 'https://eocdss.ncdr.nat.gov.tw/web/images/other/Red_glow.gif';
             var PicSymbol = new esri.symbol.PictureMarkerSymbol(picPath, 37, 42);
             var eqPT =  new esri.Graphic(esri.geometry.geographicToWebMercator(new esri.geometry.Point(this.eq.EQ_WGS84_Lon, this.eq.EQ_WGS84_Lat)),PicSymbol); 
-            var layer = new GraphicsLayer({
+            var layer = new esri.layers.GraphicsLayer({
               graphics: [eqPT]
             });
             map.add(layer);
